@@ -110,7 +110,7 @@ sendGmail = async(emailProperties)=>{
 
 	let message = emailProperties.message;
 
-	puppeteer.use(pluginStealth());
+	//puppeteer.use(pluginStealth());
 
     const browser = await puppeteer.launch({
 
