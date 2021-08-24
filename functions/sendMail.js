@@ -1,6 +1,6 @@
 
-const puppeteer = require("puppeteer");
-//const puppeteer = require("puppeteer-core");
+//const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-core");
 
 //const chromium = require('chrome-aws-lambda');
 
