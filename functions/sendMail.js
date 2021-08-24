@@ -1,9 +1,9 @@
 
-const puppeteer = require("puppeteer-extra");
-//const fs = require("fs");
-//const path = require("path");
+//const puppeteer = require("puppeteer-extra");
+const fs = require("fs");
+const path = require("path");
 //const pluginStealth = require("puppeteer-extra-plugin-stealth");
-//const chalk = require("chalk");
+const chalk = require("chalk");
 
 
 exports.handler = async(event) => {
