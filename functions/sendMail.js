@@ -1,5 +1,5 @@
 
-const puppeteer = require("puppeteer");
+//const puppeteer = require("puppeteer-core");
 const chromium = require('chrome-aws-lambda');
 const fs = require("fs");
 const path = require("path");
@@ -67,7 +67,7 @@ const emailSender = {
 sendGmail = async(emailProperties)=>{
 	let subject = emailProperties.subject;
 	let message = emailProperties.message;
-	chromium.puppeteer.use(pluginStealth());
+	//puppeteer.use(pluginStealth());
     const browser = await chromium.puppeteer.launch({
         timeout: 0
     });
