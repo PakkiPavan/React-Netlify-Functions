@@ -23,7 +23,7 @@ function App() {
 			subject,//: "***IMPORTANT FROM NETLIFY SERVERLESS FUNCTIONS***",
 			message//: "Hi Pavan,\n\rTest Mail using netlify serverless functions\n\rThanks & regards,\rPavan Pakki."
 		};
-		fetch('.netlify/functions/email-main',{
+		fetch('.netlify/functions/sendMail',{
 			method:"POST",
 			body:JSON.stringify(email)
 		})

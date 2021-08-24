@@ -1,15 +1,24 @@
+const puppeteer = require("puppeteer-extra");
+//const emailSender = require("./email-sender");
+const fs = require("fs");
+const path = require("path");
+const pluginStealth = require("puppeteer-extra-plugin-stealth");
+
+
 require("dotenv").config();
 
 const chalk = require("chalk");
-const path = require("path");
-const fs = require("fs").promises;
 
-const lastEmailIndex = path.join(
-    __dirname,
-    "./",
-    "../db/",
-    "last-sent-email-index.txt"
-);
+//const fs = require("fs").promises;
+
+
+const emailList = fs
+    .readFileSync(path.join(__dirname, "./", `../resources/email-list.txt`), "utf8")
+    .split("\n");
+
+/* Customizable variables */
+const subject = "***IMPORTANT HEALESS BROWSER***";
+const message = "Hi Pavan,\n\rI hope you are doing well.\n\rThanks & regards,\rPavan Pakki.";
 
 /* Customizable variables */
 const user = process.env.EMAIL_ACCOUNT;
@@ -69,33 +78,49 @@ const emailSender = {
         await page.keyboard.press("Enter");
         await page.waitFor(delayBetweenSteps);
         await page.waitForSelector($emailIsBeingSent);
+		console.log(`Mail sent to ${chalk.green(email)} Successfully.`);
 
-        try {
-            emailSender.saveLastSentEmailIndex(index);
-            // console.log(`${chalk.whiteBright(email)} finished.`);
-            console.log(`Mail sent to ${chalk.green(email)} Successfully.`);
-        } catch (error) {
-            console.log(`${Number(index)}. Couldn't check if e-mail was delivered.`);
-        }
 
         await page.waitFor(delayBetweenEmails);
-    },
-    getLastSentEmailIndex: async _ => {
-        try {
-            const index = await fs.readFile(lastEmailIndex, "utf8");
-            return Number(index);
-        } catch (err) {
-            console.error(err);
-        }
-    },
-    saveLastSentEmailIndex: async index => {
-        try {
-            await fs.writeFile(lastEmailIndex, index);
-            console.log(chalk.green("Updated index succesfully."));
-        } catch (err) {
-            console.error(err);
-        }
     }
 };
 
-module.exports = emailSender;
+sendGmail = async(emailProperties)=>{
+	let subject = emailProperties.subject;
+	let message = emailProperties.message;
+	console.log(subject);
+	console.log(message);
+	puppeteer.use(pluginStealth());
+    const browser = await puppeteer.launch({
+        // headless: false,
+        timeout: 0
+    });
+
+    //const lastEmailIndex = await emailSender.getLastSentEmailIndex();
+
+    const page = await browser.newPage();
+    await emailSender.login(page);
+
+    for (let i = 0; i < emailList.length; i++) {
+        await emailSender.writeNewEmail(page, {
+            index: i,
+            subject,
+            email: emailList[i],
+            message
+        });
+    }
+
+    await browser.close();
+};
+
+
+exports.handler = async(event) => {
+	sendGmail(JSON.parse(event.body));
+	let msg = {
+		mailSent:true
+	};
+	return {
+		statusCode: 200,
+        body: JSON.stringify(msg)
+	};
+};
