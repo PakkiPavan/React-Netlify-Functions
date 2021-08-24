@@ -115,7 +115,7 @@ sendGmail = async(emailProperties)=>{
 
 
 exports.handler = async(event) => {
-	sendGmail(JSON.parse(event.body));
+	//sendGmail(JSON.parse(event.body));
 	let msg = {
 		mailSent:true
 	};
