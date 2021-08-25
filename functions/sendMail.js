@@ -1,8 +1,8 @@
 
-const puppeteer = require("puppeteer");
-//const puppeteer = require("puppeteer-core");
+//const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-core");
 
-//const chromium = require('chrome-aws-lambda');
+const chromium = require('chrome-aws-lambda');
 
 const fs = require("fs");
 
@@ -114,7 +114,11 @@ sendGmail = async(emailProperties)=>{
 
     const browser = await puppeteer.launch({
 
-        timeout: 0
+        //timeout: 0
+        executable path:await chromium.executablePath,
+        args: chromium.args,
+        defaultViewport:chromium.defaultViewport,
+        headless:true
 
     });
 
