@@ -118,10 +118,13 @@ sendGmail = async(emailProperties)=>{
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
     });
+    console.log("OPENING GMAIL");
 
     const page = await browser.newPage();
+    console.log("LOGGING IN");
 
-    //await emailSender.login(page);
+    await emailSender.login(page);
+    console.log("LOGGED IN");
 
     /*for (let i = 0; i < emailList.length; i++) {
 
@@ -145,9 +148,10 @@ sendGmail = async(emailProperties)=>{
 
 
 exports.handler = async(event) => {
-    console.log("SENDING MAIL");
+        console.log("SENDING MAIL");
 
 	sendGmail(JSON.parse(event.body));
+        console.log("SUCCESS");
 	let msg = {
 		mailSent:true
 	};
