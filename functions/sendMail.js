@@ -1,6 +1,6 @@
 
 //const puppeteer = require("puppeteer");
-const puppeteer = require("puppeteer-core");
+//const puppeteer = require("puppeteer-core");
 
 const chromium = require('chrome-aws-lambda');
 
@@ -112,12 +112,11 @@ sendGmail = async(emailProperties)=>{
 
 	//puppeteer.use(pluginStealth());
 
-    const browser = await puppeteer.launch({
-        executablePath:chromium.executablePath,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        //defaultViewport:chromium.defaultViewport,
-        headless:true
-
+    const browser = await chromium.puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath,
+        headless: chromium.headless,
     });
 
     const page = await browser.newPage();
