@@ -20,7 +20,7 @@
  
 
     "dotenv": "^10.0.0",
-    "puppeteer":"^1.11.0",
+    "chrome-aws-lambda":"^1.0.0",
 
 
     "puppeteer-core": "^1.11.0"
