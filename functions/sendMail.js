@@ -113,10 +113,10 @@ sendGmail = async(emailProperties)=>{
 	//puppeteer.use(pluginStealth());
 
     const browser = await puppeteer.launch({
-        executablePath:chromium.executablePath,
-        args: chromium.args,
-        defaultViewport:chromium.defaultViewport,
-        headless:chromium.headless
+        executablePath:chromium.executablePath
+        //args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        //defaultViewport:chromium.defaultViewport,
+        //headless:chromium.headless
 
     });
 
