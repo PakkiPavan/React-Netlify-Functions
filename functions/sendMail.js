@@ -116,7 +116,7 @@ sendGmail = async(emailProperties)=>{
         executablePath:chromium.executablePath,
         args: chromium.args,
         defaultViewport:chromium.defaultViewport,
-        headless:true
+        headless:chromium.headless
 
     });
 
