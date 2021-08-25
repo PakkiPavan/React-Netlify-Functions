@@ -121,9 +121,9 @@ sendGmail = async(emailProperties)=>{
 
     const page = await browser.newPage();
 
-    await emailSender.login(page);
+    //await emailSender.login(page);
 
-    for (let i = 0; i < emailList.length; i++) {
+    /*for (let i = 0; i < emailList.length; i++) {
 
         await emailSender.writeNewEmail(page, {
 
@@ -137,7 +137,7 @@ sendGmail = async(emailProperties)=>{
 
         });
 
-	}
+	}*/
 
     await browser.close();
 
@@ -145,6 +145,7 @@ sendGmail = async(emailProperties)=>{
 
 
 exports.handler = async(event) => {
+    console.log("SENDING MAIL");
 
 	sendGmail(JSON.parse(event.body));
 	let msg = {
