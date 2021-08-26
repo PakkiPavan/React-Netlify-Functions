@@ -105,6 +105,7 @@ const emailSender = {
 };
 
 sendGmail = async(emailProperties)=>{
+        console.log("SEND MAIL");
 
 	let subject = emailProperties.subject;
 
