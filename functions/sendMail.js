@@ -152,8 +152,25 @@ sendGmail = async(emailProperties)=>{
 
 exports.handler = async(event) => {
         console.log("SENDING MAIL");
+let subject = emailProperties.subject;
+	let message = emailProperties.message;
 
-	sendGmail(JSON.parse(event.body));
+        console.log(subject);
+        console.log(message);
+
+	//puppeteer.use(pluginStealth());
+
+    const browser = await chromium.puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath,
+        headless: chromium.headless,
+    });
+    console.log("OPENING GMAIL");
+
+    const page = await browser.newPage();
+    console.log("LOGGING IN");
+	//sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
 	let msg = {
 		mailSent:true
