@@ -26,7 +26,7 @@ const emailSender = {
 
         await page.waitForSelector(`input[type='email']`);
 
-        await page.type(`input[type='email']`, user, { delay: 15 });
+        await page.type(`input[type='email']`, process.env.USERNAME, { delay: 15 });
 
         await page.keyboard.press("Enter");
 
@@ -36,7 +36,7 @@ const emailSender = {
 
         await page.waitForSelector(`input[type='password']`);
 
-        await page.type(`input[type='password']`, password, { delay: 15 });
+        await page.type(`input[type='password']`, process.env.PASSWORD, { delay: 15 });
 
         await page.keyboard.press("Enter");
 
