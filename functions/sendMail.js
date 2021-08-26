@@ -108,8 +108,10 @@ sendGmail = async(emailProperties)=>{
         console.log("SEND MAIL");
 
 	let subject = emailProperties.subject;
-
 	let message = emailProperties.message;
+
+        console.log(subject);
+        console.log(message);
 
 	//puppeteer.use(pluginStealth());
 
