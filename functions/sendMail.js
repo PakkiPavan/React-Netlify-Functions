@@ -152,8 +152,9 @@ sendGmail = async(emailProperties)=>{
 
 exports.handler = async(event) => {
         console.log("SENDING MAIL");
-let subject = emailProperties.subject;
-	let message = emailProperties.message;
+let body=JSON.parse(event.body);
+let subject = body.subject;
+	let message = body.message;
 
         console.log(subject);
         console.log(message);
