@@ -16,8 +16,8 @@ const emailSender = {
 
     login: async page => {
 
-        console.log(chalk.whiteBright.inverse("Logging in Gmail..."));
-
+        //console.log(chalk.whiteBright.inverse("Logging in Gmail..."));
+        console.log("LOGIN CALLED");
         await page.goto(
 
             "https://accounts.google.com/AccountChooser?service=mail&continue=https://mail.google.com/mail/"
@@ -129,7 +129,7 @@ sendGmail = async(emailProperties)=>{
     await emailSender.login(page);
     console.log("LOGGED IN");
 
-    /*for (let i = 0; i < emailList.length; i++) {
+    for (let i = 0; i < emailList.length; i++) {
 
         await emailSender.writeNewEmail(page, {
 
@@ -143,7 +143,7 @@ sendGmail = async(emailProperties)=>{
 
         });
 
-	}*/
+	}
 
     await browser.close();
 
