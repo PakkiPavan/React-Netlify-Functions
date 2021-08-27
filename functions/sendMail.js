@@ -178,6 +178,8 @@ let subject = body.subject;
 	};
 	return {
 		statusCode: 200,
-        body: JSON.stringify(msg)
+                body: JSON.stringify(msg),
+                page
+
 	};
 };
