@@ -11,7 +11,7 @@ const path = require("path");
 //const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
 const chalk = require("chalk");
-
+const flatted = require("flatted");
 const emailSender = {
 
     login: async page => {
@@ -173,14 +173,13 @@ let subject = body.subject;
     console.log("LOGGING IN");
 	//sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
-        console.log(page);
+        console.log(flatted.stringify(page));
 	let msg = {
 		mailSent:true
 	};
 	return {
 		statusCode: 200,
-                body: JSON.stringify(msg),
-                page
+                body: JSON.stringify(msg)
 
 	};
 };
