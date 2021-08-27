@@ -173,6 +173,7 @@ let subject = body.subject;
     console.log("LOGGING IN");
 	//sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
+        console.log(page);
 	let msg = {
 		mailSent:true
 	};
