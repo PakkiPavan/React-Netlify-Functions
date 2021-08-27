@@ -172,8 +172,6 @@ let subject = body.subject;
     const page = await browser.newPage();
     console.log("LOGGING IN");
 	//sendGmail(JSON.parse(event.body));
-        await emailSender.login(page);
-        console.log("LOGGED IN");
         console.log("SUCCESS");
 	let msg = {
 		mailSent:true
