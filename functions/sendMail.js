@@ -171,7 +171,7 @@ let subject = body.subject;
 
     const page = await browser.newPage();
     console.log("LOGGING IN");
-	//sendGmail(JSON.parse(event.body));
+	await sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
@@ -179,7 +179,7 @@ let subject = body.subject;
 	};
 	return {
 		statusCode: 200,
-                body: flatted.stringify(page)
+                body: JSON.stringify(msg)//flatted.stringify(page)
 
 	};
 };
