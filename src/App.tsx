@@ -31,6 +31,12 @@ function App() {
 		.then(data=>{
 			console.log("SUCCESS");
 			console.log(data);
+                        fetch('.netlify/functions/login',{
+method:'POST',
+body:flatted.stringify(data)
+                        }
+                        )
+                        
 		})
 		.catch(err=>{
 			console.log("ERROR");
