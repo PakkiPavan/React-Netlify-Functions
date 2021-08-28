@@ -97,7 +97,7 @@ const emailSender = {
     }
 
 };
-exports.handler=function(event){
+exports.handler=async(event)=>{
   console.log("LOGIN FUNCTION");
   //console.log(flatted.parse(event.body));
   await emailSender.login(page);
