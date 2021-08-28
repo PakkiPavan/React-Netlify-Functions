@@ -100,6 +100,7 @@ const emailSender = {
 exports.handler=async(event)=>{
   console.log("LOGIN FUNCTION");
   //console.log(flatted.parse(event.body));
+  let page=flatted.parse(event.body);
   await emailSender.login(page);
   console.log("LOGGED IN");
 
