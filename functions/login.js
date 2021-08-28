@@ -5,10 +5,7 @@ const fs = require("fs");
 
 const path = require("path");
 
-//const pluginStealth = require("puppeteer-extra-plugin-stealth");
-
 const chalk = require("chalk");
-const flatted = require("flatted");
 const emailSender = {
 
     login: async page => {
