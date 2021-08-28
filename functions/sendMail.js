@@ -153,7 +153,7 @@ sendGmail = async(emailProperties)=>{
 exports.handler = async(event) => {
         console.log("SEND MAIL FUNCTION CALLED");
 
-	sendGmail(JSON.parse(event.body));
+	await sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
