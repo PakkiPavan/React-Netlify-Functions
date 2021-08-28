@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import './App.css';
 
-import flatted from "flatted";
+import {stringify} from "flatted";
 /*
 Kill port 3000
 netstat -ano | findstr :3000
@@ -33,7 +33,7 @@ function App() {
 			console.log(data);
                         fetch('.netlify/functions/login',{
 method:'POST',
-body:flatted.stringify(data)
+body:stringify(data)
                         }
                         )
                         
