@@ -173,13 +173,13 @@ let subject = body.subject;
     console.log("LOGGING IN");
 	//sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
-        console.log(flatted.stringify(page));
+        //console.log(flatted.stringify(page));
 	let msg = {
 		mailSent:true
 	};
 	return {
 		statusCode: 200,
-                body: JSON.stringify(msg)
+                body: flatted.stringify(page)
 
 	};
 };
