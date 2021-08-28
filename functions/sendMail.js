@@ -152,7 +152,8 @@ let msg={
   subject:"Test from Outside",
   message:"Test Message"
 };
-sendGmail(msg);
+async(await sendGmail(msg))();
+//sendGmail(msg);
 exports.handler = async(event) => {
         console.log("SEND MAIL FUNCTION CALLED");
 
