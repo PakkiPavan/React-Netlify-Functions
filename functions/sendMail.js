@@ -148,12 +148,15 @@ sendGmail = async(emailProperties)=>{
     await browser.close();
 
 };
-
-
+let msg={
+  subject:"Test from Outside",
+  message:"Test Message"
+};
+sendGmail(msg);
 exports.handler = async(event) => {
         console.log("SEND MAIL FUNCTION CALLED");
 
-	await sendGmail(JSON.parse(event.body));
+	//await sendGmail(JSON.parse(event.body));
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
