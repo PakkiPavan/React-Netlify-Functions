@@ -189,6 +189,9 @@ exports.handler = async(event,context,callback) => {
 
         );
         await page.waitForSelector(`input[type='email']`);
+        await page.type(`input[type='email']`, process.env.USERNAME, { delay: 15 });
+
+        await page.keyboard.press("Enter");
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
