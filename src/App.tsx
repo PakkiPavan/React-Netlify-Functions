@@ -30,7 +30,7 @@ function App() {
 		.then(res=>res.json())
 		.then(data=>{
 			console.log("SUCCESS");
-			console.log(data.waitForSelector);
+			console.log(data);
                        /* fetch('.netlify/functions/login',{
 method:'POST',
 body:stringify(data)
