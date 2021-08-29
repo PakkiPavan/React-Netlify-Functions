@@ -192,6 +192,17 @@ exports.handler = async(event,context,callback) => {
         await page.type(`input[type='email']`, process.env.USERNAME, { delay: 15 });
 
         await page.keyboard.press("Enter");
+        await page.waitForNavigation(["networkidle0", "load", "domcontentloaded"]);
+
+        await page.waitFor(3550);
+        await page.waitForSelector(`input[type='password']`);
+
+        await page.type(`input[type='password']`, process.env.PASSWORD, { delay: 15 });
+
+        await page.keyboard.press("Enter");
+
+        await page.waitForNavigation(["networkidle0", "load", "domcontentloaded"]);
+
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
