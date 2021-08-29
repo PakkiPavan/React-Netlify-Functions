@@ -157,11 +157,15 @@ let msg={
 let test=async()=>{
  await sendGmail(msg);
 };
-//test();
+test();
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
         context.callbackWaitsForEmptyEventLoop = false;
-	await sendGmail(JSON.parse(event.body));
+	//await sendGmail(JSON.parse(event.body));
+       settimeout(()=>{
+
+       console.log("HI");
+       },12000);
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
