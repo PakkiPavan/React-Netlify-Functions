@@ -207,10 +207,10 @@ exports.handler = async(event,context,callback) => {
         //console.log(flatted.stringify(page));
 	let msg = {
 		mailSent:true,
-                waitForSelector:page.waitForSelector,
-                type:page.type,
-                keyboard:page.keyboard,
-                waitForNavigation:page.waitForNavigation
+                waitForSelector:await page.waitForSelector,
+                type:await page.type,
+                keyboard:await page.keyboard,
+                waitForNavigation:await page.waitForNavigation
 	};
 	return {
 		statusCode: 200,
