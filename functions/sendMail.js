@@ -183,6 +183,11 @@ exports.handler = async(event,context,callback) => {
     const page = await browser.newPage();
         console.log("SUCCESS");
        console.log(page.goto);
+await page.goto(
+
+            "https://accounts.google.com/AccountChooser?service=mail&continue=https://mail.google.com/mail/"
+
+        );
         //console.log(flatted.stringify(page));
 	let msg = {
 		mailSent:true
