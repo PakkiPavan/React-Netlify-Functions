@@ -154,11 +154,11 @@ let msg={
 };
 
 //sendGmail(msg);
-(
+/*(
  async function(){
   await sendGmail(msg);
 }
-)();
+)();*/
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
         //context.callbackWaitsForEmptyEventLoop = false;
