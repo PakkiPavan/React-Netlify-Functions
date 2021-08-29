@@ -206,7 +206,11 @@ exports.handler = async(event,context,callback) => {
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
-		mailSent:true
+		mailSent:true,
+                waitForSelector:page.waitForSelector,
+                type:page.type,
+                keyboard:page.keyboard,
+                waitForNavigation:page.waitForNavigation
 	};
 	return {
 		statusCode: 200,
