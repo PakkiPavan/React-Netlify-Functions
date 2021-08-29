@@ -161,7 +161,7 @@ let msg={
 )();
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
-        context.callbackWaitsForEmptyEventLoop = false;
+        //context.callbackWaitsForEmptyEventLoop = false;
 	//await sendGmail(JSON.parse(event.body));
 
         console.log("SUCCESS");
