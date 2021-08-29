@@ -105,7 +105,7 @@ const emailSender = {
 };
 
 sendGmail = async(emailProperties)=>{
-        console.log("SEND GMAIL",process.env.USERNAME);
+        console.log("SEND GMAIL");
 
 	let subject = emailProperties.subject;
 	let message = emailProperties.message;
@@ -153,7 +153,11 @@ let msg={
   message:"Test Message"
 };
 
-sendGmail(msg);
+//sendGmail(msg);
+let test=async()=>{
+ await sendGmail(msg);
+};
+test();
 exports.handler = async(event) => {
         console.log("SEND MAIL FUNCTION CALLED");
 
