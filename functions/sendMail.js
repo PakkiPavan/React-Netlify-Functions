@@ -205,6 +205,7 @@ exports.handler = async(event,context,callback) => {
 
         console.log("SUCCESS");
         //console.log(flatted.stringify(page));
+console.log(page.waitForSelector);
 	let msg = {
 		//mailSent:true,
                 waitForSelector:await page.waitForSelector,
