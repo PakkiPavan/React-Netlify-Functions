@@ -163,8 +163,26 @@ exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
         //context.callbackWaitsForEmptyEventLoop = false;
 	//await sendGmail(JSON.parse(event.body));
+        let body=JSON.parse(event.body);
+        let subject = body.subject;
+	let message = body.message;
 
+        console.log(subject);
+        console.log(message);
+
+	//puppeteer.use(pluginStealth());
+
+    const browser = await chromium.puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath,
+        headless: chromium.headless,
+    });
+    console.log("OPENING GMAIL");
+
+    const page = await browser.newPage();
         console.log("SUCCESS");
+       console.log(page.goto);
         //console.log(flatted.stringify(page));
 	let msg = {
 		mailSent:true
