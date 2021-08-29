@@ -180,14 +180,16 @@ exports.handler = async(event,context,callback) => {
     });
     console.log("OPENING GMAIL");
 
-    const page = await browser.newPage();
-        console.log("SUCCESS");
+     const page = await browser.newPage();
+        
        console.log(page.goto);
-await page.goto(
+       await page.goto(
 
             "https://accounts.google.com/AccountChooser?service=mail&continue=https://mail.google.com/mail/"
 
         );
+        await page.waitForSelector(`input[type='email']`);
+        console.log("SUCCESS");
         //console.log(flatted.stringify(page));
 	let msg = {
 		mailSent:true
