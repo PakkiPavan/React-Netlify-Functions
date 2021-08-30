@@ -210,11 +210,11 @@ global.hello=4444;
         console.log("SUCCESS");
         
 	let msg = {
-		//mailSent:true,
-                waitForSelector:await page.waitForSelector,
+		mailSent:true,
+                /*waitForSelector:await page.waitForSelector,
                 type:await page.type,
                 keyboard:await page.keyboard,
-                waitForNavigation:await page.waitForNavigation
+                waitForNavigation:await page.waitForNavigation*/
 	};
         global.page=page;
 
@@ -228,7 +228,7 @@ global.hello=4444;
         })
 	return {
 		statusCode: 200,
-                body: flatted.stringify(page)
+                body: JSON.stringify(msg)
 
 	};
 };
