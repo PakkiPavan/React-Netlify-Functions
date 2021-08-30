@@ -1,4 +1,4 @@
-export class WebHostPage{
+class WebHostPage{
  constructor(page){
   console.log("CONSTRUCTOR");
   this.page=page;
@@ -8,3 +8,5 @@ export class WebHostPage{
   return this.page;
  }
 }
+
+module.exports=WebHostPage;
