@@ -9,7 +9,8 @@ console.log(globalThis.hello);
 
 
 exports.handler=async(event)=>{
-  console.log("LOGIN INSIDE FUNCTION");
+  console.log("LOGIN INSIDE FUNCTION", globalThis.hello);
+  console.log(globalThis);
   let page=JSON.parse(event.body);
   /*let waitForSelectorFun=page.waitForSelector;
   waitForSelectorFun=waitForSelectorFun.replace(/\n/g,"");
