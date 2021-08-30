@@ -3,8 +3,8 @@
 //const fs = require("fs");
 console.log("OUTSIDE LOGIN");
 
-console.log(global);
-console.log(global.hello);
+console.log(globalThis);
+console.log(globalThis.hello);
 
 
 
