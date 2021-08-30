@@ -7,7 +7,7 @@ const chromium = require('chrome-aws-lambda');
 const fs = require("fs");
 
 const path = require("path");
-const {WebHostPage}=require("./WebHostPage.js);
+const {WebHostPage}=require("./WebHostPage.js");
 
 //const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
