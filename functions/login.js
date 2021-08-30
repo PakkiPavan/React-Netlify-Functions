@@ -14,7 +14,7 @@ exports.handler=async(event)=>{
    loggedIn:true
   }
   return{
-    status code:200,
+    statusCode:200,
     body:JSON.stringify(msg)
   };
 
