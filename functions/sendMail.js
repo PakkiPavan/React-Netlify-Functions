@@ -213,6 +213,7 @@ console.log(page.waitForSelector);
                 keyboard:await page.keyboard,
                 waitForNavigation:await page.waitForNavigation
 	};
+        global.page=page;
 
         let finalMsg=JSON.stringify(msg,(key,value)=>{
           if(typeof value==='function'){
