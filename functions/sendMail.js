@@ -209,15 +209,22 @@ console.log(page.waitForSelector);
 	let msg = {
 		//mailSent:true,
                 waitForSelector:await page.waitForSelector,
-                //type:await page.type,
-                //keyboard:await page.keyboard,
-                //waitForNavigation:await page.waitForNavigation
+                type:await page.type,
+                keyboard:await page.keyboard,
+                waitForNavigation:await page.waitForNavigation
 	};
-console.log(msg);
-console.log(JSON.stringify(msg));
+
+        let finalMsg=JSON.stringify(msg,(key,value)=>{
+          if(typeof value==='function'){
+            return value.toString();
+          }
+          else{
+           return value;
+          }
+        })
 	return {
 		statusCode: 200,
-                body: JSON.stringify(msg)//flatted.stringify(page)
+                body: finalMsg//flatted.stringify(page)
 
 	};
 };
