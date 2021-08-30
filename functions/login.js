@@ -1,4 +1,4 @@
-const flatted=require("flatted");
+//const flatted=require("flatted");
 const chromium = require('chrome-aws-lambda');
 
 const fs = require("fs");
@@ -99,9 +99,19 @@ const emailSender = {
 };
 exports.handler=async(event)=>{
   console.log("LOGIN FUNCTION");
-  //console.log(flatted.parse(event.body));
-  let page=flatted.parse(event.body);
-  await emailSender.login(page);
+  let page=JSON.parse(event.body);
+  let waitForSelector=page.waitForSelector;
+  eval(waitForSelector);
+  await waitForSelector(`input[type='password']`);
+  
   console.log("LOGGED IN");
+  let msg={
+   loggedIn:true
+  }
+  return{
+    status code:200,
+    body:JSON.stringify(msg)
+  };
+
 
 }
