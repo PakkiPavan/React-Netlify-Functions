@@ -10,7 +10,7 @@ exports.handler=async(event)=>{
   waitForSelectorFun="function "+waitForSelectorFun;
   eval(waitForSelectorFun);
   await waitForSelector(`input[type='password']`);*/
-  
+  console.log(global.page);
   console.log("LOGGED IN");
   let msg={
    loggedIn:true
