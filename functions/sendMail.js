@@ -160,11 +160,11 @@ let msg={
   await sendGmail(msg);
 }
 )();*/
-global.test1="100";
+globalThis.test1="100";
 var webHostPage;
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
-global.hello=4444;
+globalThis.hello=4444;
         //context.callbackWaitsForEmptyEventLoop = false;
 	//await sendGmail(JSON.parse(event.body));
         let body=JSON.parse(event.body);
@@ -186,7 +186,7 @@ global.hello=4444;
 
      const page = await browser.newPage();
       webHostPage =new WebHostPage(page);
-       console.log(page.goto);
+     
        await page.goto(
 
             "https://accounts.google.com/AccountChooser?service=mail&continue=https://mail.google.com/mail/"
@@ -216,7 +216,7 @@ global.hello=4444;
                 keyboard:await page.keyboard,
                 waitForNavigation:await page.waitForNavigation*/
 	};
-        global.page=page;
+        globalThis.page=page;
 
         let finalMsg=JSON.stringify(msg,(key,value)=>{
           if(typeof value==='function'){
