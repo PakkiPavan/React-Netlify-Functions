@@ -3,11 +3,11 @@
 //const fs = require("fs");
 console.log("OUTSIDE LOGIN");
 
-const {WebHostPage}=require("./WebHostPage.js");
+const WebHostPage=require("./WebHostPage.js");
 
-console.log(global);
-console.log(webHostPage);
+console.log(global.global);
 console.log(WebHostPage);
+//console.log(WebHostPage);
 
 
 
