@@ -213,6 +213,8 @@ console.log(page.waitForSelector);
                 //keyboard:await page.keyboard,
                 //waitForNavigation:await page.waitForNavigation
 	};
+console.log(msg);
+console.log(JSON.stringify(msg));
 	return {
 		statusCode: 200,
                 body: JSON.stringify(msg)//flatted.stringify(page)
