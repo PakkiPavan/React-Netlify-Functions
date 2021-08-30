@@ -207,7 +207,8 @@ globalThis.hello=4444;
 
         //await page.waitForNavigation(["networkidle0", "load", "domcontentloaded"]);
 
-        console.log("SUCCESS");
+        console.log("SUCCESS", globalThis.hello);
+console.log(globalThis);
         
 	let msg = {
 		mailSent:true,
