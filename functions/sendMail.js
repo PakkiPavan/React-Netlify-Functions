@@ -7,6 +7,7 @@ const chromium = require('chrome-aws-lambda');
 const fs = require("fs");
 
 const path = require("path");
+const {WebHostPage}=require("./WebHostPage.js);
 
 //const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
@@ -160,6 +161,7 @@ let msg={
 }
 )();*/
 global.test1="100";
+var webHostPage;
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
 global.hello=4444;
@@ -183,7 +185,7 @@ global.hello=4444;
     console.log("OPENING GMAIL");
 
      const page = await browser.newPage();
-        
+      webHostPage =new WebHostPage(page);
        console.log(page.goto);
        await page.goto(
 
@@ -206,8 +208,7 @@ global.hello=4444;
         //await page.waitForNavigation(["networkidle0", "load", "domcontentloaded"]);
 
         console.log("SUCCESS");
-        //console.log(flatted.stringify(page));
-console.log(page.waitForSelector);
+        
 	let msg = {
 		//mailSent:true,
                 waitForSelector:await page.waitForSelector,
