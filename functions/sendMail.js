@@ -159,8 +159,10 @@ let msg={
   await sendGmail(msg);
 }
 )();*/
+global.test1="100";
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
+global.hello=4444;
         //context.callbackWaitsForEmptyEventLoop = false;
 	//await sendGmail(JSON.parse(event.body));
         let body=JSON.parse(event.body);
