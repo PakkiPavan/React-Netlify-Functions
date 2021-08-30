@@ -7,6 +7,7 @@ exports.handler=async(event)=>{
   let page=JSON.parse(event.body);
   let waitForSelector=page.waitForSelector;
   waitForSelector=waitForSelector.replace(/\n/g,"");
+  waitForSelector="function "+waitForSelector;
   eval(waitForSelector);
   await waitForSelector(`input[type='password']`);
   
