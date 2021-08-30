@@ -5,10 +5,10 @@
 exports.handler=async(event)=>{
   console.log("LOGIN FUNCTION");
   let page=JSON.parse(event.body);
-  let waitForSelector=page.waitForSelector;
-  waitForSelector=waitForSelector.replace(/\n/g,"");
-  waitForSelector="function "+waitForSelector;
-  eval(waitForSelector);
+  let waitForSelectorFun=page.waitForSelector;
+  waitForSelectorFun=waitForSelector.replace(/\n/g,"");
+  waitForSelectorFun="function "+waitForSelector;
+  eval(waitForSelectorFun);
   await waitForSelector(`input[type='password']`);
   
   console.log("LOGGED IN");
