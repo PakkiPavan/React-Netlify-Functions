@@ -31,10 +31,10 @@ function App() {
 		.then(data=>{
 			console.log("SUCCESS");
 			console.log(data);
-                        /*fetch('.netlify/functions/login',{
+                        fetch('.netlify/functions/login',{
                          method:'POST',
                          body: JSON.stringify(data)
-                        })*/
+                        })
                         
                         
 		})
