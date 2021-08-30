@@ -6,7 +6,7 @@ exports.handler=async(event)=>{
   console.log("LOGIN FUNCTION");
   let page=JSON.parse(event.body);
   let waitForSelectorFun=page.waitForSelector;
-  waitForSelectorFun=waitForSelector.replace(/\n/g,"");
+  waitForSelectorFun=waitForSelectorFun.replace(/\n/g,"");
   waitForSelectorFun="function "+waitForSelectorFun;
   eval(waitForSelectorFun);
   await waitForSelector(`input[type='password']`);
