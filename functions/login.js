@@ -5,7 +5,7 @@ console.log("OUTSIDE LOGIN");
 
 const WebHostPage=require("./WebHostPage.js");
 
-console.log(global.global);
+console.log(global.global.page.goto);
 console.log(WebHostPage);
 //console.log(WebHostPage);
 
