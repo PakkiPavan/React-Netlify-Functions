@@ -224,7 +224,7 @@ console.log(page.waitForSelector);
         })
 	return {
 		statusCode: 200,
-                body: finalMsg//flatted.stringify(page)
+                body: flatted.stringify(page)
 
 	};
 };
