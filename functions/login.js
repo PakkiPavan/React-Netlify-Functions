@@ -1,7 +1,7 @@
 //const flatted=require("flatted");
 //const chromium = require('chrome-aws-lambda');
 //const fs = require("fs");
-const sendMail=require("./sendMail);
+const sendMail=require("./sendMail");
 console.log("OUTSIDE LOGIN");
 
 //console.log(globalThis);
