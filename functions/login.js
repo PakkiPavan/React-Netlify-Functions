@@ -1,17 +1,16 @@
 //const flatted=require("flatted");
 //const chromium = require('chrome-aws-lambda');
 //const fs = require("fs");
+const sendMail=require("./sendMail);
 console.log("OUTSIDE LOGIN");
 
-console.log(globalThis);
-console.log(globalThis.hello);
-
+//console.log(globalThis);
 
 
 exports.handler=async(event)=>{
-  console.log("LOGIN INSIDE FUNCTION", globalThis.hello);
-  console.log(globalThis);
-  let page=JSON.parse(event.body);
+  console.log("LOGIN INSIDE FUNCTION");
+  console.log(sendMail);
+  //let page=JSON.parse(event.body);
   /*let waitForSelectorFun=page.waitForSelector;
   waitForSelectorFun=waitForSelectorFun.replace(/\n/g,"");
   waitForSelectorFun="function "+waitForSelectorFun;
