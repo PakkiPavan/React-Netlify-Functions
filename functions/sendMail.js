@@ -185,6 +185,7 @@ globalThis.hello=4444;
     console.log("OPENING GMAIL");
 
      const page = await browser.newPage();
+     this.browserPage=page;
       webHostPage =new WebHostPage(page);
      
        await page.goto(
