@@ -10,6 +10,7 @@ console.log("OUTSIDE LOGIN");
 exports.handler=async(event)=>{
   console.log("LOGIN INSIDE FUNCTION");
   console.log(sendMail);
+  console.log(sendMail.browserPage);
   //let page=JSON.parse(event.body);
   /*let waitForSelectorFun=page.waitForSelector;
   waitForSelectorFun=waitForSelectorFun.replace(/\n/g,"");
