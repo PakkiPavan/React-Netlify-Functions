@@ -1,15 +1,15 @@
 
-//const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-extra");
 //const puppeteer = require("puppeteer-core");
 
-const chromium = require('chrome-aws-lambda');
+//const chromium = require('chrome-aws-lambda');
 
 const fs = require("fs");
 
 const path = require("path");
 const WebHostPage=require("./WebHostPage.js");
 
-//const pluginStealth = require("puppeteer-extra-plugin-stealth");
+const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
 const chalk = require("chalk");
 const flatted = require("flatted");
@@ -114,13 +114,16 @@ sendGmail = async(emailProperties)=>{
         console.log(subject);
         console.log(message);
 
-	//puppeteer.use(pluginStealth());
+	puppeteer.use(pluginStealth());
 
-    const browser = await chromium.puppeteer.launch({
+    /*const browser = await chromium.puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
+    });*/
+    const browser = await chromium.puppeteer.launch({
+       timeout:0
     });
     console.log("OPENING GMAIL");
 
@@ -164,7 +167,6 @@ globalThis.test1="100";
 var webHostPage;
 exports.handler = async(event,context,callback) => {
         console.log("SEND MAIL FUNCTION CALLED");
-globalThis.hello=4444;
         //context.callbackWaitsForEmptyEventLoop = false;
 	//await sendGmail(JSON.parse(event.body));
         let body=JSON.parse(event.body);
@@ -174,16 +176,18 @@ globalThis.hello=4444;
         console.log(subject);
         console.log(message);
 
-	//puppeteer.use(pluginStealth());
+	puppeteer.use(pluginStealth());
 
-    const browser = await chromium.puppeteer.launch({
+    /*const browser = await chromium.puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath,
         headless: false//chromium.headless,
-    });
+    });*/
     console.log("OPENING GMAIL");
-
+    const browser = await chromium.puppeteer.launch({
+     timeout:0
+    })
      const page = await browser.newPage();
      this.browserPage=page;
       webHostPage =new WebHostPage(page);
