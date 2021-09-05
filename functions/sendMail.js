@@ -1,15 +1,15 @@
 
-const puppeteer = require("puppeteer-extra");
+//const puppeteer = require("puppeteer-extra");
 //const puppeteer = require("puppeteer-core");
 
-//const chromium = require('chrome-aws-lambda');
+const chromium = require('chrome-aws-lambda');
 
 const fs = require("fs");
 
 const path = require("path");
 const WebHostPage=require("./WebHostPage.js");
 
-const pluginStealth = require("puppeteer-extra-plugin-stealth");
+//const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
 const chalk = require("chalk");
 const flatted = require("flatted");
@@ -122,7 +122,7 @@ sendGmail = async(emailProperties)=>{
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
     });*/
-    const browser = await puppeteer.launch({
+    const browser = await chromium.puppeteer.launch({
        timeout:0
     });
     console.log("OPENING GMAIL");
@@ -178,16 +178,16 @@ exports.handler = async(event,context,callback) => {
 
 	puppeteer.use(pluginStealth());
 
-    /*const browser = await chromium.puppeteer.launch({
+    const browser = await chromium.puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath,
         headless: false//chromium.headless,
-    });*/
+    });
     console.log("OPENING GMAIL");
-    const browser = await puppeteer.launch({
+    /*const browser = await puppeteer.launch({
      timeout:0
-    })
+    });*/
      const page = await browser.newPage();
      this.browserPage=page;
       webHostPage =new WebHostPage(page);
