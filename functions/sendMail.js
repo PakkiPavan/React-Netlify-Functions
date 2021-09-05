@@ -122,7 +122,7 @@ sendGmail = async(emailProperties)=>{
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
     });*/
-    const browser = await chromium.puppeteer.launch({
+    const browser = await puppeteer.launch({
        timeout:0
     });
     console.log("OPENING GMAIL");
@@ -185,7 +185,7 @@ exports.handler = async(event,context,callback) => {
         headless: false//chromium.headless,
     });*/
     console.log("OPENING GMAIL");
-    const browser = await chromium.puppeteer.launch({
+    const browser = await puppeteer.launch({
      timeout:0
     })
      const page = await browser.newPage();
