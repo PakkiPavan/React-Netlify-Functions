@@ -114,7 +114,7 @@ sendGmail = async(emailProperties)=>{
         console.log(subject);
         console.log(message);
 
-	puppeteer.use(pluginStealth());
+	//puppeteer.use(pluginStealth());
 
     /*const browser = await chromium.puppeteer.launch({
         args: chromium.args,
@@ -176,7 +176,7 @@ exports.handler = async(event,context,callback) => {
         console.log(subject);
         console.log(message);
 
-	puppeteer.use(pluginStealth());
+	//puppeteer.use(pluginStealth());
 
     const browser = await chromium.puppeteer.launch({
         args: chromium.args,
