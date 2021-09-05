@@ -24,7 +24,9 @@
 
 
     "puppeteer-core": "^2.0.0",
-    "flatted":"*"
+    "flatted":"*",
+    "puppeteer-extra": "^2.1.3",
+    "puppeteer-extra-plugin-stealth": "^2.2.2"
   
 
 
